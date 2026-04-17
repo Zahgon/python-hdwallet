@@ -173,7 +173,4 @@ def get_wif_checksum(
     :returns: The checksum as a string.
     :rtype: str
     """
-
-    return bytes_to_string(decode_wif(
-        wif=wif, wif_prefix=wif_prefix
-    )[2])
+    pass

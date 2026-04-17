@@ -97,8 +97,7 @@ class SLIP10Ed25519PublicKey(IPublicKey):
         :return: The underlying object of the public key.
         :rtype: Any
         """
-
-        return SLIP10Ed25519PublicKey.compressed_length()
+        pass
 
     def underlying_object(self) -> Any:
         """

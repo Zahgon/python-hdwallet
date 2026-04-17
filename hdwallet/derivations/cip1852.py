@@ -126,15 +126,7 @@ class CIP1852Derivation(IDerivation):  # https://github.com/cardano-foundation/C
         :return: The updated instance with the new derivation path based on the coin type index.
         :rtype: CIP1852Derivation
         """
-        self._coin_type = normalize_index(index=coin_type, hardened=True)
-        self._path, self._indexes, self._derivations = normalize_derivation(path=(
-            f"m/{index_tuple_to_string(index=self._purpose)}/"
-            f"{index_tuple_to_string(index=self._coin_type)}/"
-            f"{index_tuple_to_string(index=self._account)}/"
-            f"{index_tuple_to_string(index=self._role)}/"
-            f"{index_tuple_to_string(index=self._address)}"
-        ))
-        return self
+        pass
 
     def from_account(self, account: Union[str, int, Tuple[int, int]]) -> "CIP1852Derivation":
         """
@@ -146,16 +138,7 @@ class CIP1852Derivation(IDerivation):  # https://github.com/cardano-foundation/C
         :return: The updated instance with the new derivation path based on the account index.
         :rtype: CIP1852Derivation
         """
-
-        self._account = normalize_index(index=account, hardened=True)
-        self._path, self._indexes, self._derivations = normalize_derivation(path=(
-            f"m/{index_tuple_to_string(index=self._purpose)}/"
-            f"{index_tuple_to_string(index=self._coin_type)}/"
-            f"{index_tuple_to_string(index=self._account)}/"
-            f"{index_tuple_to_string(index=self._role)}/"
-            f"{index_tuple_to_string(index=self._address)}"
-        ))
-        return self
+        pass
 
     def from_role(self, role: Union[str, int]) -> "CIP1852Derivation":
         """
@@ -167,18 +150,7 @@ class CIP1852Derivation(IDerivation):  # https://github.com/cardano-foundation/C
         :return: The updated instance with the new derivation path based on the role index.
         :rtype: CIP1852Derivation
         """
-
-        self._role = normalize_index(
-            index=self.get_role_value(role=role, name_only=False), hardened=False
-        )
-        self._path, self._indexes, self._derivations = normalize_derivation(path=(
-            f"m/{index_tuple_to_string(index=self._purpose)}/"
-            f"{index_tuple_to_string(index=self._coin_type)}/"
-            f"{index_tuple_to_string(index=self._account)}/"
-            f"{index_tuple_to_string(index=self._role)}/"
-            f"{index_tuple_to_string(index=self._address)}"
-        ))
-        return self
+        pass
 
     def from_address(self, address: Union[str, int, Tuple[int, int]]) -> "CIP1852Derivation":
         """
@@ -190,16 +162,7 @@ class CIP1852Derivation(IDerivation):  # https://github.com/cardano-foundation/C
         :return: The updated instance with the new derivation path based on the address index.
         :rtype: CIP1852Derivation
         """
-
-        self._address = normalize_index(index=address, hardened=False)
-        self._path, self._indexes, self._derivations = normalize_derivation(path=(
-            f"m/{index_tuple_to_string(index=self._purpose)}/"
-            f"{index_tuple_to_string(index=self._coin_type)}/"
-            f"{index_tuple_to_string(index=self._account)}/"
-            f"{index_tuple_to_string(index=self._role)}/"
-            f"{index_tuple_to_string(index=self._address)}"
-        ))
-        return self
+        pass
 
     def clean(self) -> "CIP1852Derivation":
         """

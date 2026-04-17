@@ -225,7 +225,7 @@ class S256Field(FieldElement):
         return '{:x}'.format(self.num).zfill(64)
 
     def sqrt(self):
-        return self**((P + 1) // 4)
+        pass
 
 
 class S256Point(Point):
@@ -249,14 +249,7 @@ class S256Point(Point):
 
     def verify(self, z, sig):
         # By Fermat's Little Theorem, 1/s = pow(s, N-2, N)
-        s_inv = pow(sig.s, N - 2, N)
-        # u = z / s
-        u = z * s_inv % N
-        # v = r / s
-        v = sig.r * s_inv % N
-        # u*G + v*P should have as the x coordinate, r
-        total = u * G + v * self
-        return total.x.num == sig.r
+        pass
 
     def sec(self, compressed=True):
         '''returns the binary version of the SEC format'''
@@ -288,26 +281,7 @@ class S256Point(Point):
     @classmethod
     def parse(self, sec_bin):
         '''returns a Point object from a SEC binary (not hex)'''
-        if sec_bin[0] == 4:
-            x = int.from_bytes(sec_bin[1:33], 'big')
-            y = int.from_bytes(sec_bin[33:65], 'big')
-            return S256Point(x=x, y=y)
-        is_even = sec_bin[0] == 2
-        x = S256Field(int.from_bytes(sec_bin[1:], 'big'))
-        # right side of the equation y^2 = x^3 + 7
-        alpha = x**3 + S256Field(B)
-        # solve for left side
-        beta = alpha.sqrt()
-        if beta.num % 2 == 0:
-            even_beta = beta
-            odd_beta = S256Field(P - beta.num)
-        else:
-            even_beta = S256Field(P - beta.num)
-            odd_beta = beta
-        if is_even:
-            return S256Point(x, even_beta)
-        else:
-            return S256Point(x, odd_beta)
+        pass
 
 
 G = S256Point(
@@ -326,44 +300,11 @@ class Signature:
         return 'Signature({:x},{:x})'.format(self.r, self.s)
 
     def der(self):
-        rbin = self.r.to_bytes(32, byteorder='big')
-        # remove all null bytes at the beginning
-        rbin = rbin.lstrip(b'\x00')
-        # if rbin has a high bit, add a \x00
-        if rbin[0] & 0x80:
-            rbin = b'\x00' + rbin
-        result = bytes([2, len(rbin)]) + rbin  # <1>
-        sbin = self.s.to_bytes(32, byteorder='big')
-        # remove all null bytes at the beginning
-        sbin = sbin.lstrip(b'\x00')
-        # if sbin has a high bit, add a \x00
-        if sbin[0] & 0x80:
-            sbin = b'\x00' + sbin
-        result += bytes([2, len(sbin)]) + sbin
-        return bytes([0x30, len(result)]) + result
+        pass
 
     @classmethod
     def parse(cls, signature_bin):
-        s = BytesIO(signature_bin)
-        compound = s.read(1)[0]
-        if compound != 0x30:
-            raise SyntaxError("Bad Signature")
-        length = s.read(1)[0]
-        if length + 2 != len(signature_bin):
-            raise SyntaxError("Bad Signature Length")
-        marker = s.read(1)[0]
-        if marker != 0x02:
-            raise SyntaxError("Bad Signature")
-        rlength = s.read(1)[0]
-        r = int.from_bytes(s.read(rlength), 'big')
-        marker = s.read(1)[0]
-        if marker != 0x02:
-            raise SyntaxError("Bad Signature")
-        slength = s.read(1)[0]
-        s = int.from_bytes(s.read(slength), 'big')
-        if len(signature_bin) != 6 + rlength + slength:
-            raise SyntaxError("Signature too long")
-        return cls(r, s)
+        pass
 
 
 class PrivateKey:
@@ -376,38 +317,10 @@ class PrivateKey:
         return '{:x}'.format(self.secret).zfill(64)
 
     def sign(self, z):
-        k = self.deterministic_k(z)
-        # r is the x coordinate of the resulting point k*G
-        r = (k * G).x.num
-        # remember 1/k = pow(k, N-2, N)
-        k_inv = pow(k, N - 2, N)
-        # s = (z+r*secret) / k
-        s = (z + r * self.secret) * k_inv % N
-        if s > N / 2:
-            s = N - s
-        # return an instance of Signature:
-        # Signature(r, s)
-        return Signature(r, s)
+        pass
 
     def deterministic_k(self, z):
-        k = b'\x00' * 32
-        v = b'\x01' * 32
-        if z > N:
-            z -= N
-        z_bytes = z.to_bytes(32, 'big')
-        secret_bytes = self.secret.to_bytes(32, 'big')
-        s256 = hashlib.sha256
-        k = hmac.new(k, v + b'\x00' + secret_bytes + z_bytes, s256).digest()
-        v = hmac.new(k, v, s256).digest()
-        k = hmac.new(k, v + b'\x01' + secret_bytes + z_bytes, s256).digest()
-        v = hmac.new(k, v, s256).digest()
-        while True:
-            v = hmac.new(k, v, s256).digest()
-            candidate = int.from_bytes(v, 'big')
-            if candidate >= 1 and candidate < N:
-                return candidate
-            k = hmac.new(k, v + b'\x00', s256).digest()
-            v = hmac.new(k, v, s256).digest()
+        pass
 
     def wif(self, compressed=True, testnet=False):
         # convert the secret from integer to a 32-bytes in big endian using num.to_bytes(32, 'big')

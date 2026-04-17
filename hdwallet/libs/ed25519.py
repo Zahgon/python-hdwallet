@@ -71,7 +71,7 @@ def point_is_encoded_bytes(point_bytes: bytes) -> bool:
 
 
 def point_is_valid_bytes(point_bytes: bytes) -> bool:
-    return point_is_decoded_bytes(point_bytes) or point_is_encoded_bytes(point_bytes)
+    pass
 
 
 def point_bytes_to_coord(point_bytes: bytes) -> Tuple[int, int]:
@@ -102,10 +102,7 @@ def point_decode_no_check(point_bytes: bytes) -> Tuple[int, int]:
 
 
 def point_decode(point_bytes: bytes) -> Tuple[int, int]:
-    point_coord = point_decode_no_check(point_bytes)
-    if not point_is_on_curve(point_coord):
-        raise ValueError("Decoded point does not lie on the curve")
-    return point_coord
+    pass
 
 
 def point_encode(point_coord: Tuple[int, int]) -> bytes:

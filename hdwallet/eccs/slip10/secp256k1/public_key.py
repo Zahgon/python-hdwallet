@@ -104,8 +104,7 @@ class SLIP10Secp256k1PublicKeyCoincurve(IPublicKey):
         :return: The length of an uncompressed public key in bytes.
         :rtype: int
         """
-
-        return SLIP10_SECP256K1_CONST.PUBLIC_KEY_UNCOMPRESSED_BYTE_LENGTH
+        pass
 
     def underlying_object(self) -> Any:
         """
@@ -240,8 +239,7 @@ class SLIP10Secp256k1PublicKeyECDSA(IPublicKey):
         :return: The length of an uncompressed public key in bytes.
         :rtype: int
         """
-
-        return SLIP10_SECP256K1_CONST.PUBLIC_KEY_UNCOMPRESSED_BYTE_LENGTH
+        pass
 
     def underlying_object(self) -> Any:
         """

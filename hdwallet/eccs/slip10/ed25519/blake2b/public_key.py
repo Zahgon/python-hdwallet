@@ -100,8 +100,7 @@ class SLIP10Ed25519Blake2bPublicKey(IPublicKey):
         :return: The uncompressed length of the public key.
         :rtype: int
         """
-
-        return SLIP10Ed25519Blake2bPublicKey.compressed_length()
+        pass
 
     def underlying_object(self) -> Any:
         """

@@ -107,8 +107,7 @@ class SLIP10Nist256p1PublicKey(IPublicKey):
         :return: The length of the uncompressed public key.
         :rtype: int
         """
-
-        return SLIP10_SECP256K1_CONST.PUBLIC_KEY_UNCOMPRESSED_BYTE_LENGTH
+        pass
 
     def underlying_object(self) -> Any:
         """

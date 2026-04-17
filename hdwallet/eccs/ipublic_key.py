@@ -137,9 +137,4 @@ class IPublicKey(ABC):
         :return: True if the point is valid, False otherwise.
         :rtype: bool
         """
-
-        try:
-            cls.from_point(point)
-            return True
-        except ValueError:
-            return False
+        pass

@@ -28,7 +28,7 @@ class Types(NestedNamespace):
         return list(self.__dict__.values())
 
     def is_cardano_type(self, cardano_type) -> bool:
-        return cardano_type in self.get_cardano_types()
+        pass
 
 
 class Mainnet(INetwork):

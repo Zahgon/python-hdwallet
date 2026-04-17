@@ -133,15 +133,7 @@ class HDWDerivation(IDerivation):
         :return: The updated `HDWDerivation` object itself after setting the account.
         :rtype: HDWDerivation
         """
-
-        self._account = normalize_index(index=account, hardened=True)
-        self._path, self._indexes, self._derivations = normalize_derivation(path=(
-            f"m/"
-            f"{index_tuple_to_string(index=self._account)}/"
-            f"{index_tuple_to_string(index=self._ecc)}/"
-            f"{index_tuple_to_string(index=self._address)}"
-        ))
-        return self
+        pass
 
     def from_ecc(self, ecc: Union[str, int, Type[IEllipticCurveCryptography]]) -> "HDWDerivation":
         """
@@ -154,17 +146,7 @@ class HDWDerivation(IDerivation):
         :return: The updated `HDWDerivation` object itself after setting the ecc.
         :rtype: HDWDerivation
         """
-
-        self._ecc = normalize_index(
-            index=self.get_ecc_value(ecc=ecc, name_only=False), hardened=False
-        )
-        self._path, self._indexes, self._derivations = normalize_derivation(path=(
-            f"m/"
-            f"{index_tuple_to_string(index=self._account)}/"
-            f"{index_tuple_to_string(index=self._ecc)}/"
-            f"{index_tuple_to_string(index=self._address)}"
-        ))
-        return self
+        pass
 
     def from_address(self, address: Union[str, int, Tuple[int, int]]) -> "HDWDerivation":
         """
@@ -177,15 +159,7 @@ class HDWDerivation(IDerivation):
         :return: The updated `HDWDerivation` object itself after setting the address.
         :rtype: HDWDerivation
         """
-
-        self._address = normalize_index(index=address, hardened=False)
-        self._path, self._indexes, self._derivations = normalize_derivation(path=(
-            f"m/"
-            f"{index_tuple_to_string(index=self._account)}/"
-            f"{index_tuple_to_string(index=self._ecc)}/"
-            f"{index_tuple_to_string(index=self._address)}"
-        ))
-        return self
+        pass
 
     def clean(self) -> "HDWDerivation":
         """

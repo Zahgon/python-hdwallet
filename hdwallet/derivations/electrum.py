@@ -73,13 +73,7 @@ class ElectrumDerivation(IDerivation):
         :return: The instance of ElectrumDerivation with the updated change index.
         :rtype: ElectrumDerivation
         """
-
-        self._change = normalize_index(index=change, hardened=False)
-        self._path, self._indexes, self._derivations = normalize_derivation(path=(
-            f"m/{index_tuple_to_string(index=self._change)}/"
-            f"{index_tuple_to_string(index=self._address)}"
-        ))
-        return self
+        pass
 
     def from_address(self, address: Union[str, int, Tuple[int, int]]) -> "ElectrumDerivation":
         """
@@ -91,13 +85,7 @@ class ElectrumDerivation(IDerivation):
         :return: The instance of ElectrumDerivation with the updated address index.
         :rtype: ElectrumDerivation
         """
-
-        self._address = normalize_index(index=address, hardened=False)
-        self._path, self._indexes, self._derivations = normalize_derivation(path=(
-            f"m/{index_tuple_to_string(index=self._change)}/"
-            f"{index_tuple_to_string(index=self._address)}"
-        ))
-        return self
+        pass
 
     def clean(self) -> "ElectrumDerivation":
         """

@@ -75,46 +75,7 @@ class BIP141HD(BIP32HD):
         :return: Self-reference for method chaining.
         :rtype: BIP141HD
         """
-
-        if semantic not in SEMANTICS.get_types():
-            raise Error(
-                f"Invalid {self.name()} semantic type", expected=SEMANTICS.get_types(), got=semantic
-            )
-        self._semantic = semantic
-
-        if semantic == SEMANTICS.P2WPKH:
-            self._address = P2WPKHAddress.name()
-            self._xprivate_key_version = kwargs.get(
-                "p2wpkh_xprivate_key_version", Bitcoin.NETWORKS.MAINNET.XPRIVATE_KEY_VERSIONS.P2WPKH
-            )
-            self._xpublic_key_version = kwargs.get(
-                "p2wpkh_xpublic_key_version", Bitcoin.NETWORKS.MAINNET.XPUBLIC_KEY_VERSIONS.P2WPKH
-            )
-        elif semantic == SEMANTICS.P2WPKH_IN_P2SH:
-            self._address = P2WPKHInP2SHAddress.name()
-            self._xprivate_key_version = kwargs.get(
-                "p2wpkh_in_p2sh_xprivate_key_version", Bitcoin.NETWORKS.MAINNET.XPRIVATE_KEY_VERSIONS.P2WPKH_IN_P2SH
-            )
-            self._xpublic_key_version = kwargs.get(
-                "p2wpkh_in_p2sh_xpublic_key_version", Bitcoin.NETWORKS.MAINNET.XPUBLIC_KEY_VERSIONS.P2WPKH_IN_P2SH
-            )
-        elif semantic == SEMANTICS.P2WSH:
-            self._address = P2WSHAddress.name()
-            self._xprivate_key_version = kwargs.get(
-                "p2wsh_xprivate_key_version", Bitcoin.NETWORKS.MAINNET.XPRIVATE_KEY_VERSIONS.P2WSH
-            )
-            self._xpublic_key_version = kwargs.get(
-                "p2wsh_xpublic_key_version", Bitcoin.NETWORKS.MAINNET.XPUBLIC_KEY_VERSIONS.P2WSH
-            )
-        elif semantic == SEMANTICS.P2WSH_IN_P2SH:
-            self._address = P2WSHInP2SHAddress.name()
-            self._xprivate_key_version = kwargs.get(
-                "p2wsh_in_p2sh_xprivate_key_version", Bitcoin.NETWORKS.MAINNET.XPRIVATE_KEY_VERSIONS.P2WSH_IN_P2SH
-            )
-            self._xpublic_key_version = kwargs.get(
-                "p2wsh_in_p2sh_xpublic_key_version", Bitcoin.NETWORKS.MAINNET.XPUBLIC_KEY_VERSIONS.P2WSH_IN_P2SH
-            )
-        return self
+        pass
 
     def semantic(self) -> str:
         """

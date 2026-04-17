@@ -42,8 +42,7 @@ class SLIP10Ed25519MoneroPublicKey(SLIP10Ed25519PublicKey):
         :return: The uncompressed length of the Ed25519 Monero public key.
         :rtype: int
         """
-
-        return SLIP10Ed25519MoneroPublicKey.compressed_length()
+        pass
 
     def raw_compressed(self) -> bytes:
         """

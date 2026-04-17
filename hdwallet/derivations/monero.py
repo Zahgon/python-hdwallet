@@ -74,13 +74,7 @@ class MoneroDerivation(IDerivation):
         :return: The instance of MoneroDerivation with the updated minor index.
         :rtype: MoneroDerivation
         """
-
-        self._minor = normalize_index(index=minor, hardened=False)
-        self._path, self._indexes, self._derivations = normalize_derivation(path=(
-            f"m/{index_tuple_to_string(index=self._minor)}/"
-            f"{index_tuple_to_string(index=self._major)}"
-        ))
-        return self
+        pass
 
     def from_major(self, major: Union[str, int, Tuple[int, int]]) -> "MoneroDerivation":
         """
@@ -95,13 +89,7 @@ class MoneroDerivation(IDerivation):
         :return: The instance of MoneroDerivation with the updated major index.
         :rtype: MoneroDerivation
         """
-
-        self._major = normalize_index(index=major, hardened=False)
-        self._path, self._indexes, self._derivations = normalize_derivation(path=(
-            f"m/{index_tuple_to_string(index=self._minor)}/"
-            f"{index_tuple_to_string(index=self._major)}"
-        ))
-        return self
+        pass
 
     def clean(self) -> "MoneroDerivation":
         """

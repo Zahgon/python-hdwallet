@@ -145,7 +145,7 @@ class Seeds(NestedNamespace):
 class HDs(NestedNamespace):
 
     def get_hds(self) -> List[str]:
-        return list(self.__dict__.values())
+        pass
 
 
 class Addresses(NestedNamespace):
@@ -178,10 +178,7 @@ class Networks(NestedNamespace):
         return [network.lower() for network in self.__dict__.keys()]
 
     def get_network(self, network: str) -> Any:  # INetwork
-        if not self.is_network(network=network):
-            raise NetworkError(f"'{network} network is not available")
-
-        return self.__getattribute__(network.upper())
+        pass
 
 
 class Params(NestedNamespace):
@@ -194,18 +191,13 @@ class ExtendedKeyVersions(NestedNamespace):
         return bytes_to_integer(version) in self.__dict__.values()
 
     def get_versions(self) -> List[str]:
-        return [version.lower().replace('_', '-') for version in self.__dict__.keys()]
+        pass
 
     def get_version(self, name: str) -> Union[str, int, bytes]:
         return self.__getattribute__(name.upper().replace('-', '_'))
 
     def get_name(self, version: bytes) -> Optional[str]:
-        name: Optional[str] = None
-        for key in self.__dict__.keys():
-            if self.__dict__.get(key) == bytes_to_integer(version):
-                name = key
-                break
-        return name
+        pass
 
 
 class XPrivateKeyVersions(ExtendedKeyVersions):

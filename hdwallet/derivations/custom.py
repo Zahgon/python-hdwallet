@@ -82,12 +82,7 @@ class CustomDerivation(IDerivation):
         :return: The instance of CustomDerivation after setting the derivation path and indexes list.
         :rtype: CustomDerivation
         """
-
-        if not isinstance(indexes, list):
-            raise DerivationError("Bad indexes instance", expected=list, got=type(indexes))
-
-        self._path, self._indexes, self._derivations = normalize_derivation(indexes=indexes)
-        return self
+        pass
 
     def from_index(self, index: int, hardened: bool = False) -> "CustomDerivation":
         """

@@ -970,8 +970,7 @@ class BIP32HD(IHD):
         :return: The hash of the public key.
         :rtype: str
         """
-
-        return bytes_to_string(ripemd160(sha256(get_bytes(self.public_key())).digest()))
+        pass
 
     def fingerprint(self) -> str:
         """

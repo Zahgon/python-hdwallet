@@ -80,10 +80,7 @@ class BIP44HD(BIP32HD):
         :return: Updated BIP44HD object.
         :rtype: BIP44HD
         """
-
-        self._derivation.from_coin_type(coin_type=coin_type)
-        self.__update__()
-        return self
+        pass
 
     def from_account(self, account: Union[int, Tuple[int, int]]) -> "BIP44HD":
         """
@@ -95,10 +92,7 @@ class BIP44HD(BIP32HD):
         :return: Updated BIP44HD object.
         :rtype: BIP44HD
         """
-
-        self._derivation.from_account(account=account)
-        self.__update__()
-        return self
+        pass
 
     def from_change(self, change: str) -> "BIP44HD":
         """
@@ -110,10 +104,7 @@ class BIP44HD(BIP32HD):
         :return: Updated BIP44HD object.
         :rtype: BIP44HD
         """
-
-        self._derivation.from_change(change=change)
-        self.__update__()
-        return self
+        pass
 
     def from_address(self, address: Union[int, Tuple[int, int]]) -> "BIP44HD":
         """
@@ -125,10 +116,7 @@ class BIP44HD(BIP32HD):
         :return: Updated BIP44HD object.
         :rtype: BIP44HD
         """
-
-        self._derivation.from_address(address=address)
-        self.__update__()
-        return self
+        pass
 
     def from_derivation(self, derivation: IDerivation) -> "BIP44HD":
         """

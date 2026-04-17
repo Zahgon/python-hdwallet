@@ -148,14 +148,7 @@ class SLIP10Nist256p1Point(IPoint):
         :return: Decoded bytes representation of the elliptic curve point.
         :rtype: bytes
         """
-
-        try:
-            return self.point.to_bytes()
-        except AttributeError:
-            x_bytes = integer_to_bytes(self.point.x(), SLIP10_SECP256K1_CONST.POINT_COORDINATE_BYTE_LENGTH)
-            y_bytes = integer_to_bytes(self.point.y(), SLIP10_SECP256K1_CONST.POINT_COORDINATE_BYTE_LENGTH)
-
-            return x_bytes + y_bytes
+        pass
 
     def __add__(self, point: IPoint) -> IPoint:
         """

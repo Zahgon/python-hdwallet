@@ -122,15 +122,7 @@ class BIP44Derivation(IDerivation):  # https://github.com/bitcoin/bips/blob/mast
         :return: The updated `BIP44Derivation` object itself after setting the coin type.
         :rtype: BIP44Derivation
         """
-        self._coin_type = normalize_index(index=coin_type, hardened=True)
-        self._path, self._indexes, self._derivations = normalize_derivation(path=(
-            f"m/{index_tuple_to_string(index=self._purpose)}/"
-            f"{index_tuple_to_string(index=self._coin_type)}/"
-            f"{index_tuple_to_string(index=self._account)}/"
-            f"{index_tuple_to_string(index=self._change)}/"
-            f"{index_tuple_to_string(index=self._address)}"
-        ))
-        return self
+        pass
 
     def from_account(self, account: Union[str, int, Tuple[int, int]]) -> "BIP44Derivation":
         """
@@ -143,16 +135,7 @@ class BIP44Derivation(IDerivation):  # https://github.com/bitcoin/bips/blob/mast
         :return: The updated `BIP44Derivation` object itself after setting the account.
         :rtype: BIP44Derivation
         """
-
-        self._account = normalize_index(index=account, hardened=True)
-        self._path, self._indexes, self._derivations = normalize_derivation(path=(
-            f"m/{index_tuple_to_string(index=self._purpose)}/"
-            f"{index_tuple_to_string(index=self._coin_type)}/"
-            f"{index_tuple_to_string(index=self._account)}/"
-            f"{index_tuple_to_string(index=self._change)}/"
-            f"{index_tuple_to_string(index=self._address)}"
-        ))
-        return self
+        pass
 
     def from_change(self, change: Union[str, int]) -> "BIP44Derivation":
         """
@@ -165,18 +148,7 @@ class BIP44Derivation(IDerivation):  # https://github.com/bitcoin/bips/blob/mast
         :return: The updated `BIP44Derivation` object itself after setting the change.
         :rtype: BIP44Derivation
         """
-
-        self._change = normalize_index(
-            index=self.get_change_value(change=change, name_only=False), hardened=False
-        )
-        self._path, self._indexes, self._derivations = normalize_derivation(path=(
-            f"m/{index_tuple_to_string(index=self._purpose)}/"
-            f"{index_tuple_to_string(index=self._coin_type)}/"
-            f"{index_tuple_to_string(index=self._account)}/"
-            f"{index_tuple_to_string(index=self._change)}/"
-            f"{index_tuple_to_string(index=self._address)}"
-        ))
-        return self
+        pass
 
     def from_address(self, address: Union[str, int, Tuple[int, int]]) -> "BIP44Derivation":
         """
@@ -189,16 +161,7 @@ class BIP44Derivation(IDerivation):  # https://github.com/bitcoin/bips/blob/mast
         :return: The updated `BIP44Derivation` object itself after setting the address.
         :rtype: BIP44Derivation
         """
-
-        self._address = normalize_index(index=address, hardened=False)
-        self._path, self._indexes, self._derivations = normalize_derivation(path=(
-            f"m/{index_tuple_to_string(index=self._purpose)}/"
-            f"{index_tuple_to_string(index=self._coin_type)}/"
-            f"{index_tuple_to_string(index=self._account)}/"
-            f"{index_tuple_to_string(index=self._change)}/"
-            f"{index_tuple_to_string(index=self._address)}"
-        ))
-        return self
+        pass
 
     def clean(self) -> "BIP44Derivation":
         """

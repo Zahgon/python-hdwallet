@@ -26,8 +26,7 @@ def generate_passphrase(length: int = 32) -> str:
     :return: A randomly generated passphrase consisting of ASCII letters and digits.
     :rtype: str
     """
-
-    return "".join(choice(string.ascii_letters + string.digits) for _ in range(length))
+    pass
 
 
 def get_hmac(ecc_name: str) -> bytes:
@@ -273,14 +272,7 @@ def index_tuple_to_integer(index: Union[Tuple[int, bool], Tuple[int, int, bool]]
     :return: The integer representation of the index, with hardening flag applied if present.
     :rtype: int
     """
-
-    if not isinstance(index, tuple):
-        raise DerivationError("Invalid index instance", expected=tuple, got=type(index))
-    elif len(index) == 3:
-        return (index[1] + 0x80000000) if index[2] else index[0]
-    elif len(index) == 2:
-        return (index[0] + 0x80000000) if index[1] else index[0]
-    raise DerivationError("Wrong index length", expected=[2, 3], got=len(index))
+    pass
 
 
 def index_tuple_to_string(index: Union[Tuple[int, bool], Tuple[int, int, bool]]) -> str:
@@ -317,13 +309,7 @@ def index_string_to_tuple(index: str) -> Tuple[int, bool]:
     :return: A tuple representing the index and whether it is hardened (True) or not (False).
     :rtype: Tuple[int, bool]
     """
-
-    index_split: List[str] = index.split("'")
-    return (
-        (int(index_split[0]), True)
-        if index.endswith("'") else
-        (int(index_split[0]), False)
-    )
+    pass
 
 
 def xor(data_1: bytes, data_2: bytes) -> bytes:
@@ -338,10 +324,7 @@ def xor(data_1: bytes, data_2: bytes) -> bytes:
     :return: The result of XOR operation as a bytes object.
     :rtype: bytes
     """
-
-    return bytes(
-        [b1 ^ b2 for b1, b2 in zip(data_1, data_2)]
-    )
+    pass
 
 
 def add_no_carry(data_1: bytes, data_2: bytes) -> bytes:
@@ -392,8 +375,7 @@ def is_bits_set(value: int, bit_num: int) -> bool:
     :return: True if the specified bit in `value` is set (equals 1), False otherwise.
     :rtype: bool
     """
-
-    return (value & (1 << bit_num)) != 0
+    pass
 
 
 def are_bits_set(value: int, bit_mask: int) -> bool:
@@ -424,8 +406,7 @@ def set_bit(value: int, bit_num: int) -> int:
     :return: The integer value with the specified bit set to 1.
     :rtype: int
     """
-
-    return value | (1 << bit_num)
+    pass
 
 
 def set_bits(value: int, bit_mask: int) -> int:
@@ -456,8 +437,7 @@ def reset_bit(value: int, bit_num: int) -> int:
     :return: The integer value with the specified bit reset to 0.
     :rtype: int
     """
-
-    return value & ~(1 << bit_num)
+    pass
 
 
 def reset_bits(value: int, bit_mask: int) -> int:

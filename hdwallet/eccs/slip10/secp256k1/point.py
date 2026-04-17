@@ -135,8 +135,7 @@ class SLIP10Secp256k1PointCoincurve(IPoint):
         :return: The decoded raw bytes of the public key.
         :rtype: bytes
         """
-
-        return self.public_key.format(False)[1:]
+        pass
 
     def __add__(self, point: IPoint) -> IPoint:
         """
@@ -316,14 +315,7 @@ class SLIP10Secp256k1PointECDSA(IPoint):
         :return: The raw bytes of the point.
         :rtype: bytes
         """
-
-        try:
-            return self.point.to_bytes()
-        except AttributeError:
-            x: bytes = integer_to_bytes(self.point.x(), SLIP10_SECP256K1_CONST.POINT_COORDINATE_BYTE_LENGTH)
-            y: bytes = integer_to_bytes(self.point.y(), SLIP10_SECP256K1_CONST.POINT_COORDINATE_BYTE_LENGTH)
-
-            return x + y
+        pass
 
     def __add__(self, point: IPoint) -> IPoint:
         """

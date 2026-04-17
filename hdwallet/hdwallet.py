@@ -992,8 +992,7 @@ class HDWallet:
         :return: The master xpriv key if available, otherwise None.
         :rtype: Optional[str]
         """
-
-        return self.root_xprivate_key(semantic=semantic, encoded=encoded)
+        pass
 
     def master_xpublic_key(self, semantic: Optional[str] = None, encoded: bool = True) -> Optional[str]:
         """
@@ -1007,8 +1006,7 @@ class HDWallet:
         :return: The master xpub key if available, otherwise None.
         :rtype: Optional[str]
         """
-
-        return self.root_xpublic_key(semantic=semantic, encoded=encoded)
+        pass
 
     def root_private_key(self) -> Optional[str]:
         """
@@ -1100,8 +1098,7 @@ class HDWallet:
         :return: The master chain code if available, otherwise None.
         :rtype: Optional[str]
         """
-
-        return self._hd.root_chain_code()
+        pass
 
     def master_public_key(self, public_key_type: Optional[str] = None) -> Optional[str]:
         """
@@ -1307,8 +1304,7 @@ class HDWallet:
         :return: The hash.
         :rtype: str
         """
-
-        return self._hd.hash()
+        pass
 
     def depth(self) -> int:
         """

@@ -223,8 +223,7 @@ class IHD:
         :return: The root extended private key in serialized format, or None if the chain code is not set.
         :rtype: Optional[str]
         """
-
-        return self.root_xprivate_key(args, kwargs)
+        pass
 
     def master_xpublic_key(self, *args, **kwargs) -> Optional[str]:
         """
@@ -236,8 +235,7 @@ class IHD:
         :return: The master extended public key in serialized format, or None if the chain code is not set.
         :rtype: Optional[str]
         """
-
-        return self.root_xpublic_key(args, kwargs)
+        pass
 
     def root_private_key(self, *args, **kwargs) -> Optional[str]:
         """
@@ -312,8 +310,7 @@ class IHD:
         :return: The master chain code as a string, or None if the master chain code is not set.
         :rtype: Optional[str]
         """
-
-        return self.root_chain_code()
+        pass
 
     def master_public_key(self, *args, **kwargs) -> str:
         """

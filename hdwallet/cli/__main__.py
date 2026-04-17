@@ -29,10 +29,7 @@ from .list.strengths import list_strengths
 def current_version(
     context: click.core.Context, option: click.core.Option, value: bool
 ) -> None:
-    if not value or context.resilient_parsing:
-        return
-    click.echo(__version__)
-    context.exit()
+    pass
 
 
 @click.group(
@@ -80,7 +77,7 @@ def generate(context: click.core.Context) -> None:
     "-s", "--strength", type=int, default=None, help="Set Strength for entropy", show_default=True
 )
 def cli_entropy(**kwargs) -> None:
-    return generate_entropy(**kwargs)
+    pass
 
 
 @generate.command(
@@ -111,7 +108,7 @@ def cli_entropy(**kwargs) -> None:
     "-cs", "--checksum", type=bool, default=False, help="Set Checksum for Monero", show_default=True
 )
 def cli_mnemonic(**kwargs) -> None:
-    return generate_mnemonic(**kwargs)
+    pass
 
 
 @generate.command(
@@ -136,7 +133,7 @@ def cli_mnemonic(**kwargs) -> None:
     "-mt", "--mnemonic-type", type=str, default="standard", help="Set Mnemonic type for Electrum-V2", show_default=True
 )
 def cli_seed(**kwargs) -> None:
-    return generate_seed(**kwargs)
+    pass
 
 
 @cli_main.command(
@@ -269,7 +266,7 @@ def cli_seed(**kwargs) -> None:
     "-ex", "--exclude", type=str, default="", help="Set Exclude keys from dumped", show_default=True
 )
 def cli_dump(**kwargs) -> None:  # cli_dumps(max_content_width=120)
-    return dump(**kwargs)
+    pass
 
 
 @cli_main.command(
@@ -414,7 +411,7 @@ def cli_dump(**kwargs) -> None:  # cli_dumps(max_content_width=120)
     "-de", "--delimiter", type=str, default=" ", help="Set Delimiter for CSV", show_default=True
 )
 def cli_dumps(**kwargs) -> None:  # cli_dumps(max_content_width=120)
-    return dumps(**kwargs)
+    pass
 
 
 @cli_main.group(
@@ -436,7 +433,7 @@ def cli_list() -> None:
     short_help="List Available cryptocurrencies of HDWallet"
 )
 def cli_cryptocurrencies() -> None:
-    return list_cryptocurrencies()
+    pass
 
 
 @cli_list.command(
@@ -446,7 +443,7 @@ def cli_cryptocurrencies() -> None:
     short_help="List Languages of mnemonic words"
 )
 def cli_languages() -> None:
-    return list_languages()
+    pass
 
 
 @cli_list.command(
@@ -456,4 +453,4 @@ def cli_languages() -> None:
     short_help="List Strengths of mnemonic words"
 )
 def cli_strengths() -> None:
-    return list_strengths()
+    pass

@@ -147,8 +147,7 @@ class SLIP10Ed25519Point(IPoint):
         :return: The raw decoded bytes of the point coordinates.
         :rtype: bytes
         """
-
-        return int_encode(self.x()) + int_encode(self.y())
+        pass
 
     def __add__(self, point: IPoint) -> IPoint:
         """

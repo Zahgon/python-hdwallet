@@ -418,8 +418,7 @@ class CardanoAddress(IAddress):
         :return: The decoded public key as a string.
         :rtype: str
         """
-
-        return cls.decode_byron(address=address, address_type=address_type)
+        pass
 
     @classmethod
     def decode_byron_legacy(cls, address: str, address_type: str = "public-key") -> str:
@@ -435,8 +434,7 @@ class CardanoAddress(IAddress):
         :return: The decoded public key as a string.
         :rtype: str
         """
-
-        return cls.decode_byron(address=address, address_type=address_type)
+        pass
 
     @classmethod
     def encode_shelley(
